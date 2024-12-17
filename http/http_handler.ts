@@ -13,7 +13,7 @@ export type HTTPHandlerCallback = {
 export type HTTPHandlerListener = (
     request: http.IncomingMessage,
     response: http.ServerResponse,
-    requestBody: string
+    requestBody: Buffer
 ) => Promise<void> | void;
 
 export class HTTPHandler {
@@ -21,16 +21,16 @@ export class HTTPHandler {
 
     /** Delegates the response task to this handler by a given http-connection. */
     delegate(connection: HTTPConnection) {
+        const chunks: Uint8Array[] = [];
         const request = connection.request;
         const response = connection.response;
 
-        let body = "";
-        request.on("data", chunk => body += chunk);
+        request.on("data", chunk => chunks.push(chunk));
         request.on("end", async () => {
             try {
                 const method = request?.method?.toLowerCase() as "put" | "get" | "head" | "post" | "patch" | "delete";
                 if (method in this.callback && this.callback[method]) {
-                    await this.callback[method](request, response, body);
+                    await this.callback[method](request, response, Buffer.concat(chunks));
                     return;
                 }
 
