@@ -1,5 +1,5 @@
 import { randomBytes } from "crypto";
-import { REDIS_CLIENT } from "../http";
+import { REDIS_CLIENT } from "../../index";
 import { IncomingMessage, ServerResponse } from "http";
 import * as cookie from "cookie";
 
