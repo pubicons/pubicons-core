@@ -7,9 +7,9 @@ export class HTTPUtil {
         return mime.lookup(path) || "application/octet-stream";
     }
 
-    static parseRequest<T>(text: string, response: ServerResponse): T | null {
+    static parseRequest<T>(buffer: Buffer, response: ServerResponse): T | null {
         try {
-            return JSON.parse(text) as T;
+            return buffer.toJSON() as T;
         } catch {
             response.writeHead(400);
             response.end(APIException.INVALID_REQUEST_FORMAT);
