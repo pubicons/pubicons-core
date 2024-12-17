@@ -1,5 +1,5 @@
 import { ServerResponse } from "http";
-import { APIException } from "../api/components/http";
+import { APIException } from "../api/http";
 import mime from "mime-types";
 
 export class HTTPUtil {
