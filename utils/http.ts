@@ -9,7 +9,7 @@ export class HTTPUtil {
 
     static parseRequest<T>(buffer: Buffer, response: ServerResponse): T | null {
         try {
-            return buffer.toJSON() as T;
+            return JSON.parse(buffer.toString()) as T;
         } catch {
             response.writeHead(400);
             response.end(APIException.INVALID_REQUEST_FORMAT);
