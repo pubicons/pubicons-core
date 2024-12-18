@@ -1,6 +1,6 @@
 import { ServerResponse } from "http";
-import { APIException } from "../api/http";
-import mime from "mime-types";
+import { APIException } from "../api";
+import * as mime from "mime-types";
 
 export class HTTPUtil {
     static contentTypeOf(path: string) {

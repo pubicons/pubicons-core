@@ -41,6 +41,7 @@ export class HTTPRouter {
         }
     }
 
+    /** Delegates the response task to the http-handler based on self. */
     perform(connection: HTTPConnection) {
         if (connection.paths.length != 0 && this.path == connection.fristPath) {
             this.delegate(connection.consume());

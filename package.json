@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^22.10.2",
+    "mime-types": "^2.1.35"
+  }
+}
