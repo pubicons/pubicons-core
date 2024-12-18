@@ -3,3 +3,4 @@ export { HTTPHandler, HTTPHandlerCallback, HTTPHandlerListener } from "./http/ht
 export { HTTPRouter } from "./http/http_router";
 export { HTTPUtil } from "./utils/http";
 export { PathUtil } from "./utils/path";
+export { UUID } from "./utils/uuId";
