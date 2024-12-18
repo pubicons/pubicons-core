@@ -1,6 +1,8 @@
 {
   "name": "core",
   "repository": "https://github.com/pubicons/pubicons-core",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "devDependencies": {
     "@types/mime-types": "^2.1.4",
     "@types/node": "^22.10.2",
